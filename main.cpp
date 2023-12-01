@@ -3,7 +3,8 @@
 //
 #include <iostream>
 #include <fstream>
-#include <stringstream>
+#include "files_crb.h"
+#include <sstream>
 
 using namespace std;
 
@@ -19,37 +20,37 @@ int main() {
 
     ifstream in;
 
-    in.open("infile.txt");
+    in.open("C:\\users\siusl\CLionProjects\LCC_161C_input_write_shapes\\infile.txt");
     ofstream out;
-    out.open("outfile.txt");
+    out.open("C:\\users\siusl\CLionProjects\LCC_161C_input_write_shapes\\outfile.txt");;
     if (in.good()) {
         in >> shape;
         while (shape != 'E') {
             switch (shape) {
                 case TRIANGLE:
                     in >> symbol >> height;
-                    //refer triangle function
+                    string makeTriangle(symbol, height);
                     break;
-                case SQUARE:
-                    in >> symbol >> width;
-                    //square function
-                    break;
-                case DIAMOND:
-                    in >> symbol >> width;
-                    //diamond function
-                    break;
-                case RECTANGLE:
-                    in >> symbol >> height >> width;
-                    //rectangle function
-                    break;
-                default:
-                    cout << "error";
+//                case SQUARE:
+//                    in >> symbol >> width;
+//                    string makeSquare(symbol, width);
+//                    break;
+//                case DIAMOND:
+//                    in >> symbol >> width;
+//                    string makeDiamond(symbol, width);
+//                    break;
+//                case RECTANGLE:
+//                    in >> symbol >> height >> width;
+//                    string makeRectangle(symbol, height, width);
+//                    break;
+//                default:
+//                    cout << "error";
 
             }
             in >> shape;
         }
     } else {
-        cout << "Could not read file";
+        cout << "Could not read in file";
         return -1;
     }
 
